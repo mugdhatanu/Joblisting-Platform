@@ -17,6 +17,19 @@ app.get('/',(req,res) => {
 })
 
 app.use('/user',userRoutes);
+app.use((req,res,next) => {
+    const error = new Error("Not found");
+    error.status = 404;
+    next(error);
+})
+
+app.use((err,req,res,next) => {
+    res.status(err.status || 500);
+    res.json({
+        msg: err.message,
+        status: err.status || 500
+    })
+})
 
 mongoose.connect(process.env.MONGO_URI)
 .then(() => {
