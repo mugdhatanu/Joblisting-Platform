@@ -1,9 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const bodyParse = require('body-parser');
-const userRoutes = require('./routes/userRoutes');
 const bodyParser = require('body-parser');
+const userRoutes = require('./routes/userRoutes');
+
 
 
 dotenv.config();
@@ -18,7 +18,7 @@ app.get('/',(req,res) => {
 
 app.use('/user',userRoutes);
 app.use((req,res,next) => {
-    const error = new Error("Not found");
+    const error = new Error("Route not found");
     error.status = 404;
     next(error);
 })
@@ -28,7 +28,7 @@ app.use((err,req,res,next) => {
     res.json({
         msg: err.message,
         status: err.status || 500
-    })
+    })     
 })
 
 mongoose.connect(process.env.MONGO_URI)

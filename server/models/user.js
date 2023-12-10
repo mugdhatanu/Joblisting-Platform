@@ -6,10 +6,11 @@ const bcrypt = require('bcrypt');
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
+    _id: {type: mongoose.Schema.Types.ObjectId, auto: true},
     email: {type: String,required: true},
     password: {type: String,required: true},
     name: {type: String,required: true},
-    mobile: {type: Number,required: true}
+    mobile: {type: String,required: true}
 },{timestamps: true})
 
 
@@ -42,6 +43,10 @@ UserSchema.statics.login = async function (email,password) {
     const user = await this.findOne({email});
     if(!user) {
         throw new Error("User not found");
+    }
+    const verifyPassword = await bcrypt.compare(password,user.password);
+    if(!verifyPassword) {
+        throw new Error("Enter valid password");
     }
     return user;
 }
