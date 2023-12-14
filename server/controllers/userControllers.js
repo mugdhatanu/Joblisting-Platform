@@ -103,4 +103,14 @@ const listJobs = async(req,res,next) => {
     }
 }
 
-module.exports = {register,login,createJob,editJob,listJobs}
+const jobDetails = async(req,res) => {
+    const {jobId} = req.params;
+    try {
+        const job = await Job.findOne({_id: jobId});
+        res.status(200).send(job);
+    } catch(err) {
+        next(err);
+    }
+}
+
+module.exports = {register,login,createJob,editJob,listJobs,jobDetails}
