@@ -6,7 +6,6 @@ const JobSchema = new Schema({
     _id: {type: mongoose.Schema.Types.ObjectId, auto: true},
     company_name: {type: String,required: true},
     logo_url: {type: String,required: true},
-    job_title: {type: String,required: true},
     job_position: {type: String,required: true},
     monthly_salary: {type: String,required: true},
     job_type: {type: String,enum: ["Part-Time", "Full-Time"],required: true},

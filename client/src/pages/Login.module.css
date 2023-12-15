@@ -1,0 +1,75 @@
+.login-page {
+    display: flex;
+    color: var(--slate-500);
+    height: 100dvh;
+    justify-content: center;
+}
+
+.left-section {
+    width: 100%;
+    margin-top: 15vh;
+    padding: 3rem;
+}
+
+.left-section input[type=text] {
+    width: 75%;
+}
+
+.left-section input[type=checkbox] {
+    cursor: pointer;
+}
+
+.login-page h1 {
+    color : black;
+    font-size: clamp(1.3rem,2.5vw,2.5rem);
+    margin-bottom: 0.1rem;
+}
+
+.login-page p {
+    margin-top: 0.1rem;
+}
+
+
+.login-text {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.login-page a {
+    color: black;
+    font-weight: 500;
+}
+
+
+.right-section {
+    display: none;
+    min-height: 100dvh;
+    background-image: url('./../assets/bg.png');
+    background-size: cover;
+}
+
+.right-section h2 {
+    color: white;
+}
+
+
+
+@media screen and (min-width: 800px) {
+    .left-section {
+        width: 50%;
+        margin-top: 15vh;
+        padding: 3.5rem 7rem;
+    }
+
+    .register {
+        margin-top: 5vh;
+    }
+
+    .right-section {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+    }
+
+}

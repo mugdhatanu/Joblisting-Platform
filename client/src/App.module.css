@@ -1,0 +1,14 @@
+:root {
+  font-family: 'DM Sans',sans-serif;
+  --red-500: rgba(237, 83, 83, 1);
+  --red-400: rgba(255, 107, 107, 1);
+  --red-700: rgb(217, 19, 19);
+  --slate-500: rgba(82, 82, 82, 1);
+  --gray-300: rgba(194, 194, 194, 1);
+  --gray-500: rgba(133, 133, 133, 1);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}

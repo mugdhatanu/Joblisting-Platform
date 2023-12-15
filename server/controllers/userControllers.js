@@ -61,12 +61,11 @@ const createJob = async(req,res,next) => {
 }
 
 const editJob = async(req,res,next) => {
-    const {_id,job_title,company_name,logo_url,job_position,monthly_salary,job_type,work_location,remote,company_description,skills_required,information} = req.body;
+    const {_id,company_name,logo_url,job_position,monthly_salary,job_type,work_location,remote,company_description,skills_required,information} = req.body;
     try {
         const job = Job.findOne({_id});
         if(job) {
             const updatedJob = {
-                job_title: job_title || job.job_title,
                 company_name: company_name || job.company_name,
                 logo_url: logo_url || job.logo_url,
                 job_position: job_position || job.job_position,
@@ -96,7 +95,7 @@ const listJobs = async(req,res,next) => {
     const {skills,job_title} = req.body;
     const skillsArr = skills.split(",");
     try {
-        const jobs = await Job.find({job_title,skills_required: { $in : skillsArr}});
+        const jobs = await Job.find({job_position: job_title,skills_required: { $in : skillsArr}});
         res.status(200).json(jobs)
     } catch(err) {
         next(err);
