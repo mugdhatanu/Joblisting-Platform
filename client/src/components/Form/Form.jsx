@@ -1,30 +1,75 @@
 import styles from './Form.module.css'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form"
-
+import toast, {Toaster} from 'react-hot-toast'
 
 
 const Form = ({toRegister}) => {
 
     const {register,handleSubmit,formState: { errors }} = useForm();
+    const navigate = useNavigate();
 
     const loginUser = async(data) => {
         const user = {email: data.email,password: data.password}
         try {
-            const res = await axios.post('http://localhost:3000/user/login',user);
-            console.log(res);
+            await axios.post('http://localhost:3000/user/login',user);
+            toast.success('User successfully logged in', {
+                duration: 4000,
+                position: 'top-right',
+                iconTheme: {
+                    primary: 'rgb(16, 211, 16)',
+                    secondary: '#fff',
+                },
+            style: {
+                padding: "1rem"
+            }});
+            setTimeout(() => {
+                navigate("/");
+            },1000);
+           
         } catch(err) {
-            console.log(err);
+            toast.error('Error logging in', {
+                duration: 4000,
+                position: 'top-right',
+                iconTheme: {
+                    primary: 'rgb(16, 211, 16)',
+                    secondary: '#fff',
+                },
+            style: {
+                padding: "1rem"
+            }})
         }
     }
 
     const registerUser = async() => {
         const user = {email: formInputs.email,password: formInputs.password,name: formInputs.name, mobile: formInputs.mobile}
         try {
-            const res = await axios.post('http://localhost:3000/user/register',user);
-            console.log(res);
+            await axios.post('http://localhost:3000/user/register',user);
+            toast.success('User successfully registered', {
+                duration: 4000,
+                position: 'top-right',
+                iconTheme: {
+                    primary: 'rgb(248, 63, 63)',
+                    secondary: '#fff',
+                },
+            style: {
+                padding: "1rem"
+            }});
+            setTimeout(() => {
+                navigate("/");
+            },1000);
         } catch(err) {
-            console.log(err);
+            toast.error('Error registering user', {
+                duration: 4000,
+                position: 'top-right',
+                iconTheme: {
+                    primary: 'rgb(248, 63, 63)',
+                    secondary: '#fff',
+                },
+            style: {
+                padding: "1rem"
+            }})
         }
     }
 
@@ -33,6 +78,7 @@ const Form = ({toRegister}) => {
     return (
         <div className = {styles["form"]}>
             <p>Your personal job finder is here</p>
+            <Toaster />
             <form>
                 {toRegister && 
                 <input 
