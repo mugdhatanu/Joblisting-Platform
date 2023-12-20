@@ -1,4 +1,4 @@
-import Form from "../components/Form/Form"
+import Form from "../components/user/Form"
 import { Link } from "react-router-dom"
 import styles from './Login.module.css'
 

@@ -1,0 +1,29 @@
+.job {
+    background-color: var(--pink);
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 0 1rem;
+    padding: 0.5rem 1rem;
+    font-size: clamp(1rem,1.5vw,2rem);
+    background-color: white;
+    transform: translateY(-2rem);
+    box-shadow: 0 4px 23px 2px var(--dark-shadow);
+}
+
+.title h3 {
+    width: 80%;
+}
+
+@media screen and (min-width: 600px) {
+    .title {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

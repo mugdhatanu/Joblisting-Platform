@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import getFromLocalStorage from "../localstorage/getFromLocal"
+import getFromLocalStorage from "../utils/localstorage/getFromLocal"
 
 
 const ProtectedRoutes = ({children}) => {

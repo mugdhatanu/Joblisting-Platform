@@ -1,0 +1,109 @@
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+    justify-content: space-between;
+    width: 63%;
+    padding: 1rem 2rem;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 0 22px 4px var(--pink-shadow);
+}
+
+.left-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 50%;
+}
+
+.logo {
+    height: 50%;
+    margin-top: 1rem;
+}
+
+.left-section p {
+    margin: 0.5rem 0;
+}
+
+.title {
+    font-size: 120%;
+    font-weight: 600;
+}
+
+.salary-loc, .more-info {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-weight: 500;
+}
+
+.salary-loc {
+    color: var(--gray-600);
+}
+
+.more-info {
+    color: var(--red-500);
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.right-section {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    margin: 6rem 0;
+    margin-bottom: 1rem;
+    gap: 1.5rem;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.skills div {
+    background-color: var(--pink);
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+}
+
+
+.right-section button {
+    background-color: var(--red-500);
+    border: 1px solid var(--red-500);
+    color: white;
+    padding: 0.5rem 1rem;
+    width: 60%;
+    border-radius: 4px;
+    font-size: 110%;
+    cursor: pointer;
+}
+
+.right-section button:hover {
+    background-color: var(--red-700);
+}
+
+
+@media screen and (min-width: 600px) and (max-width: 1200px) {
+    .right-section {
+        margin: 1rem 0;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .right-section button {
+        margin-left: auto;
+    }
+
+    .right-section {
+        margin: 1rem 0;
+    }
+}

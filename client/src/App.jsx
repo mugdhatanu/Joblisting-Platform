@@ -5,7 +5,7 @@ import Register from './pages/Register';
 import Jobs from './pages/Jobs';
 import CreateJob from './pages/CreateJob';
 import Job from './pages/Job';
-import ProtectedRoutes from './utils/protectedRoutes/ProtectedRoutes';
+import ProtectedRoutes from './middleware/ProtectedRoutes';
 
 function App() {
 

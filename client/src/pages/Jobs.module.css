@@ -1,0 +1,6 @@
+.jobs {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--pink);
+    min-height: 100dvh;
+}

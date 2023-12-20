@@ -1,0 +1,90 @@
+.header {
+    background-color: var(--red-500);
+    padding: 2.5rem 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-bottom-left-radius: 55px;
+    border-bottom-right-radius: 62px;
+    color : white;
+    position: relative;
+}
+
+.header a {
+    margin: 0;
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+    font-size: clamp(1.2rem,2vw,2rem);
+}
+
+
+.rectangle {
+    position: absolute;
+    display: none;
+}
+
+.rectangle1 {
+    left: 0;
+    bottom: 0;
+}
+
+.rectangle2 {
+    top: -1rem;
+    transform: translateX(30vw);
+}
+
+.rectangle3 {
+    top: -1.2rem;
+    right: 2.5rem;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.buttons button {
+    border-radius: 7px;
+    padding: 0.5rem 1rem;
+    border: 2px solid white;
+    font-weight: 500;
+    font-size: larger;
+    cursor: pointer;
+}
+
+.buttons button:nth-child(1) {
+    background-color: transparent;
+    color: white;
+}
+
+.buttons button:nth-child(2) {
+    background-color: white;
+    color: var(--red-500)
+}
+
+.buttons button:nth-child(1):hover {
+    background-color: white;
+    color: var(--red-500);
+}
+
+.buttons button:nth-child(2):hover {
+    color: black;
+}
+
+@media screen and (min-width: 600px) {
+    .rectangle {
+        display: block;
+    }
+    .header {
+        justify-content: space-between;
+    }
+
+    .header a {
+        margin-left: 3rem;
+    }
+}

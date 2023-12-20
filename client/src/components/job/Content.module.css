@@ -1,0 +1,71 @@
+.content {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    width: 72.5%;
+    padding: 2.5rem;
+    box-shadow: 0 2px 35px 1px var(--dark-shadow);
+    margin-bottom: 2rem;
+    font-weight: 500;    
+}
+
+.time {
+    display: flex;
+    gap: 1rem;
+    color: var(--gray-600);
+}
+
+.title h3 {
+    margin: 0.2rem 0;
+    font-size: clamp(1rem,2.5vw,2.5rem);
+}
+
+.title p {
+    margin: 0;
+    color: var(--red-500);
+}
+
+.salary {
+    margin: 2rem 0 ;
+}
+
+.stipend {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    color: var(--gray-600);
+}
+
+.salary p {
+    margin: 0;
+    margin-top: 0.5rem;
+}
+
+.stipend p {
+    margin-top: 0;
+}
+
+.content h4 {
+    font-size: 120%;
+}
+
+.skills ul ,.info p,.about-company p ,.about-job p {
+    font-weight: 400;
+    color: var(--gray-700);
+    line-height: 1.5rem;
+}
+
+.skills ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-left: -2.5rem;
+    color: var(--gray-700);
+}
+
+.skills ul li {
+    background-color: var(--pink);
+    padding: 0.5rem 1.5rem;
+    border-radius: 21px;
+}
