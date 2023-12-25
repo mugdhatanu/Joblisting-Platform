@@ -48,7 +48,7 @@
     z-index: 2;
 }
 
-.buttons button {
+.buttons a {
     border-radius: 7px;
     padding: 0.5rem 1rem;
     border: 2px solid white;
@@ -57,22 +57,22 @@
     cursor: pointer;
 }
 
-.buttons button:nth-child(1) {
+.buttons a:nth-child(1) {
     background-color: transparent;
     color: white;
 }
 
-.buttons button:nth-child(2) {
+.buttons a:nth-child(2) {
     background-color: white;
     color: var(--red-500)
 }
 
-.buttons button:nth-child(1):hover {
+.buttons a:nth-child(1):hover {
     background-color: white;
     color: var(--red-500);
 }
 
-.buttons button:nth-child(2):hover {
+.buttons a:nth-child(2):hover {
     color: black;
 }
 
@@ -84,7 +84,7 @@
         justify-content: space-between;
     }
 
-    .header a {
+    .home {
         margin-left: 3rem;
     }
 }

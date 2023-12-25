@@ -31,10 +31,14 @@
    
 }
 
+.list-skills {
+    display: flex;
+    gap: 1.5rem;
+}
+
 .skills {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
 }
 
 .select-list {

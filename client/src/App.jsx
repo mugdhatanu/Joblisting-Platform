@@ -7,8 +7,10 @@ import CreateJob from './pages/CreateJob';
 import Job from './pages/Job';
 import ProtectedRoutes from './middleware/ProtectedRoutes';
 
-function App() {
 
+
+
+function App() {
 
   return (
     <Router>

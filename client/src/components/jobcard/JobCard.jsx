@@ -1,36 +1,40 @@
 import styles from './JobCard.module.css'
 import Logo from './../../assets/logo.png'
 import Flag from './../../assets/india.png'
+import { Link } from 'react-router-dom'
 
 
-const JobCard = () => {
+const JobCard = ({job}) => {
+  const skills = job?.skills_required.split(",");
+  const displaySkills = skills.map((skill,index) => (
+    <div key = {index}>
+      {skill}
+    </div>
+  ))
   return (
     <div className= {styles["card"]}>
       <div className= {styles["left-section"]}>
         <img src = {Logo} alt = "Logo" className= {styles["logo"]}/>
         <div className= {styles["job-info"]}>
-          <p className= {styles["title"]}>Frontend Developer</p>
+          <p className= {styles["title"]}>{job.job_position}</p>
           <div className= {styles["salary-loc"]}>
-            <p>&#8377; 50,000</p>
+            <p>&#8377; {job.monthly_salary}</p>
             <div className= {styles["location"]}>
               <img src = {Flag} alt = "Flag" className= {styles["flag"]}/>
-              <span>Delhi</span>
+              <span>{job.work_location}</span>
             </div>
           </div>
           <div className= {styles["more-info"]}>
-            <p>Office</p>
-            <p>Full time</p>
+            <p>{job.remote}</p>
+            <p>{job.job_type}</p>
           </div>
         </div>
       </div>
       <div className= {styles["right-section"]}>
         <div className= {styles["skills"]}>
-          <div>HTML</div>
-          <div>CSS</div>
-          <div>React</div>
-          <div>Javascript</div>
+          {displaySkills}
         </div>
-        <button>View details</button>
+        <Link to = {`/${job._id}`}>View details</Link>
       </div>
     </div>
   )

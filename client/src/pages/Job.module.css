@@ -1,8 +1,18 @@
 .job {
     background-color: var(--pink);
     min-height: 100dvh;
+    width: 100%;
     display: flex;
     flex-direction: column;
+}
+
+.main-content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 72.5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .title {
@@ -21,9 +31,3 @@
     width: 80%;
 }
 
-@media screen and (min-width: 600px) {
-    .title {
-        margin-left: auto;
-        margin-right: auto;
-    }
-}

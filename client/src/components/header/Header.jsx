@@ -7,10 +7,10 @@ import { Link } from 'react-router-dom'
 const Header = () => {
   return (
     <div className= {styles["header"]}>
-      <Link to = "/">Jobfinder</Link>
+      <Link to = "/" className= {styles['home']}>Jobfinder</Link>
       <div className= {styles["buttons"]}>
-        <button>Login</button>
-        <button>Register</button>
+        <Link to = "/login">Login</Link>
+        <Link to = "/register">Register</Link>
       </div>
       <img src = {Rectangle1} alt = "Design" className= {`${styles["rectangle"]} ${styles["rectangle1"]}`}/>
       <img src = {Rectangle2} alt = "Design" className= {`${styles["rectangle"]} ${styles["rectangle2"]}`}/>

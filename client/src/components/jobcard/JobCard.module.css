@@ -76,10 +76,12 @@
 }
 
 
-.right-section button {
+.right-section a {
+    text-decoration: none;
     background-color: var(--red-500);
     border: 1px solid var(--red-500);
     color: white;
+    text-align: center;
     padding: 0.5rem 1rem;
     width: 60%;
     border-radius: 4px;
@@ -87,7 +89,7 @@
     cursor: pointer;
 }
 
-.right-section button:hover {
+.right-section a:hover {
     background-color: var(--red-700);
 }
 
@@ -99,7 +101,7 @@
 }
 
 @media screen and (min-width: 1200px) {
-    .right-section button {
+    .right-section a {
         margin-left: auto;
     }
 
