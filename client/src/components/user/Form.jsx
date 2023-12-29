@@ -1,12 +1,13 @@
 import styles from './Form.module.css'
-import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form"
-import toast, {Toaster} from 'react-hot-toast'
+import {Toaster} from 'react-hot-toast'
 import setLocalStorageValue from '../../utils/localstorage/setValueInLocal';
+import getFromLocalStorage from '../../utils/localstorage/getFromLocal';
+import { login, toastError } from '../../apis/auth';
 
 
-const Form = ({toRegister}) => {
+const Form = ({toRegister,setUser}) => {
 
     const {register,handleSubmit,formState: { errors }} = useForm();
     const navigate = useNavigate();
@@ -14,65 +15,28 @@ const Form = ({toRegister}) => {
     const loginUser = async(data) => {
         const user = {email: data.email,password: data.password}
         try {
-            const res = await axios.post('http://localhost:3000/user/login',user);
-            toast.success('User successfully logged in', {
-                duration: 4000,
-                position: 'top-right',
-                iconTheme: {
-                    primary: 'rgb(16, 211, 16)',
-                    secondary: '#fff',
-                },
-            style: {
-                padding: "1rem"
-            }});
-            setLocalStorageValue("token",res.data.token);
+            const userData = await login(user);
+            setLocalStorageValue("token",userData.token);
+            setUser(getFromLocalStorage());
             setTimeout(() => {
                 navigate("/");
             },1000);
-           
         } catch(err) {
-            toast.error('Error logging in', {
-                duration: 4000,
-                position: 'top-right',
-                iconTheme: {
-                    primary: 'rgb(248, 63, 63)',
-                    secondary: '#fff',
-                },
-            style: {
-                padding: "1rem"
-            }})
+            toastError("Error logging in");
         }
     }
 
     const registerUser = async() => {
         const user = {email: formInputs.email,password: formInputs.password,name: formInputs.name, mobile: formInputs.mobile}
         try {
-            const res = await axios.post('http://localhost:3000/user/register',user);
-            toast.success('User successfully registered', {
-                duration: 4000,
-                position: 'top-right',
-                iconTheme: {
-                    primary: 'rgb(16, 211, 16)',
-                    secondary: '#fff',
-                },
-            style: {
-                padding: "1rem"
-            }});
-            setLocalStorageValue("token",res.data.token);
+            const userData = await login(user);
+            setLocalStorageValue("token",userData.token);
+            setUser(getFromLocalStorage());
             setTimeout(() => {
                 navigate("/");
             },1000);
         } catch(err) {
-            toast.error('Error registering user', {
-                duration: 4000,
-                position: 'top-right',
-                iconTheme: {
-                    primary: 'rgb(248, 63, 63)',
-                    secondary: '#fff',
-                },
-            style: {
-                padding: "1rem"
-            }})
+            toastError("Error registering user");
         }
     }
 

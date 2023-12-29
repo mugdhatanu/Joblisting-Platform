@@ -91,6 +91,23 @@
     cursor: pointer;
 }
 
+.add-job {
+    text-decoration: none;
+    background-color: var(--red-500);
+    border: 1px solid var(--red-500);
+    color: white;
+    text-align: center;
+    padding: 0.5rem 1.5rem;
+    width: 15%;
+    border-radius: 4px;
+    font-size: 110%;
+    cursor: pointer;
+}
+
+.add-job:hover {
+    background-color: var(--red-700);
+}
+
 @media screen and (min-width: 750px) {
     .search input {
         width: 50vw;
@@ -102,5 +119,9 @@
 
     .skills {
         padding: 0 5rem;
+    }
+
+    .clear-section {
+        margin-left: 5rem;
     }
 }

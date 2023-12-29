@@ -3,13 +3,13 @@ import { Link } from "react-router-dom"
 import styles from './Login.module.css'
 
 
-const Register = () => {
+const Register = ({setUser}) => {
    
     return (
         <div className = {styles["login-page"]}>
             <div className= {`${styles["left-section"]} ${styles["register"]} `}>
                 <h1>Create an account</h1>
-                <Form toRegister = {true}/>
+                <Form toRegister = {true} setUser = {setUser}/>
                 <div className = {styles["login-text"]}>
                     <span>Already have an account?</span>
                     <Link to = "/login">Sign in</Link>

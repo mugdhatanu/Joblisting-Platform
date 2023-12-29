@@ -2,13 +2,13 @@ import Form from "../components/user/Form"
 import { Link } from "react-router-dom"
 import styles from './Login.module.css'
 
-const Login = () => {
+const Login = ({setUser}) => {
 
     return (
         <div className = {styles["login-page"]}>
             <div className= {styles["left-section"]}>
                 <h1>Already have an account?</h1>
-                <Form toRegister = {false}/>
+                <Form toRegister = {false} setUser = {setUser}/>
                 <div className = {styles["login-text"]}>
                     <span>Don't have an account?</span>
                     <Link to = "/register">Sign Up</Link>

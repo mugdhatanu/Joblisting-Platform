@@ -1,18 +1,32 @@
+import { useState } from "react"
 import Form from "../components/job/Form"
 import styles from './CreateJob.module.css'
 
 
 
-const CreateJob = () => {
+
+const CreateJob = ({setJobs}) => {
+  const job = JSON.parse(localStorage.getItem("job"));
+  const toEdit = JSON.parse(localStorage.getItem("edit"));
+  const [jobData,setJobData] = useState( 
+    job ||{company_name: "",
+          company_description: "",
+          job_description: "",
+          job_positin: "",
+          job_type: "Select",
+          logo_url: "",
+          monthly_salary: "",
+          remote: "Select",
+          skills_required: "",
+          work_location: "",
+          informationl: ""
+          });
+
   return (
     <div className= {styles["create-job"]}>
         <div className= {styles["left-section"]}>
             <h1>Add job description</h1>
-            <Form />
-            <div className= {styles["footer"]}>
-              <button className= {styles["cancel"]}>Cancel</button>
-              <button className= {styles["add"]}>+Add Job</button>
-            </div>
+            <Form setJobs = {setJobs} jobData = {jobData} setJobData = {setJobData} toEdit = {toEdit} />
         </div>
         <div className={styles["right-section"]}>
             <h2>Recruiter add job details here</h2>

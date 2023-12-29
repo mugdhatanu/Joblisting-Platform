@@ -76,8 +76,11 @@
 }
 
 
-.right-section a {
+.right-section a, .right-section button {
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: var(--red-500);
     border: 1px solid var(--red-500);
     color: white;
@@ -89,8 +92,27 @@
     cursor: pointer;
 }
 
-.right-section a:hover {
+.right-section a:hover, .right-section button:hover {
     background-color: var(--red-700);
+}
+
+
+.links {
+    display: flex;
+    gap: 1rem;
+    height: 40px;
+}
+
+.right-section .edit {
+    background-color: transparent;
+    color: var(--red-500);
+    border-width: 2px;
+    font-weight: 500;
+
+}
+
+.right-section .edit:hover {
+    color: white;
 }
 
 

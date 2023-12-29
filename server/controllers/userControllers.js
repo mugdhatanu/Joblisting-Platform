@@ -5,6 +5,7 @@ const Job = require('./../models/job');
 
 const createJwtToken = (id) => {
     const token = jwt.sign({id},process.env.SECRET,{expiresIn: '2h'});
+    console.log(token);
     return token;
 }
 
@@ -93,16 +94,28 @@ const editJob = async(req,res,next) => {
 
 const listJobs = async(req,res,next) => {
     const {skills,job_title} = req.body;
-    const skillsArr = skills.split(",");
+    let query = {};
+
+    if(job_title) {
+        query.job_position = job_title;
+    }
+    
+    let skillsArr = [];
+    
+    if(skills) {
+        skillsArr = skills.split(",");
+        query.skills_required = { $in : skillsArr};
+    }
+   
     try {
-        const jobs = await Job.find({job_position: job_title,skills_required: { $in : skillsArr}});
+        const jobs = await Job.find(query);
         res.status(200).json(jobs)
     } catch(err) {
         next(err);
     }
 }
 
-const jobDetails = async(req,res) => {
+const jobDetails = async(req,res,next) => {
     const {jobId} = req.params;
     try {
         const job = await Job.findOne({_id: jobId});

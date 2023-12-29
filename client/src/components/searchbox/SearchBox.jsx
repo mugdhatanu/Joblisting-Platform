@@ -1,9 +1,12 @@
 import { useRef } from 'react'
 import Search from './../../assets/Search.png'
 import styles from './SearchBox.module.css'
+import { useNavigate } from 'react-router-dom';
 
-const SearchBox = ({filterParams,setFilterParams}) => {
+
+const SearchBox = ({filterParams,setFilterParams,user}) => {
   const selectRef = useRef(null);
+  const navigate = useNavigate();
 
   const addSkill = (skill) => {
     if(skill!== "Skills" && !filterParams.skills.includes(skill)) {
@@ -27,6 +30,12 @@ const SearchBox = ({filterParams,setFilterParams}) => {
     </div>
   ))
 
+  const addJob = () => {
+    localStorage.setItem("edit",JSON.stringify(false));
+    localStorage.removeItem("job");
+    navigate("/createJob");
+  }
+
   return (
     <div className= {styles["search-box"]}>
         <div className= {styles["search"]}>
@@ -45,8 +54,11 @@ const SearchBox = ({filterParams,setFilterParams}) => {
               {skills}
             </div>
           </div>
-          <button className= {styles["clear"]} onClick={clear}>Clear</button>
+          {user ? <button className = {styles["add-job"]} onClick={addJob}>+Add Job</button> : <button className= {styles["clear"]} onClick={clear}>Clear</button>}
         </div>
+       {user && <div className= {styles["clear-section"]}>
+          <button className= {styles["clear"]} onClick={clear}>Clear</button>
+        </div>}
     </div>
   )
 }

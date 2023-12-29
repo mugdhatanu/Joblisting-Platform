@@ -1,16 +1,23 @@
 import styles from './JobCard.module.css'
 import Logo from './../../assets/logo.png'
 import Flag from './../../assets/india.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
-const JobCard = ({job}) => {
-  const skills = job?.skills_required.split(",");
+const JobCard = ({job,user,setJob}) => {
+  const navigate = useNavigate();
+  const skills = job?.skills_required;
   const displaySkills = skills.map((skill,index) => (
     <div key = {index}>
       {skill}
     </div>
   ))
+  const editJob = () => {
+    setJob(job);
+    localStorage.setItem("edit",JSON.stringify(true));
+    localStorage.setItem("job",JSON.stringify(job));
+    navigate("/createJob");
+  }
   return (
     <div className= {styles["card"]}>
       <div className= {styles["left-section"]}>
@@ -34,7 +41,10 @@ const JobCard = ({job}) => {
         <div className= {styles["skills"]}>
           {displaySkills}
         </div>
-        <Link to = {`/${job._id}`}>View details</Link>
+        <div className= {styles["links"]}>
+          {user && <button className= {styles['edit']} onClick={editJob}>Edit Job</button>}
+          <Link to = {`/${job._id}`}>View details</Link>
+        </div>
       </div>
     </div>
   )

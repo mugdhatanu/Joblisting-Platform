@@ -18,42 +18,6 @@
     background-image: url('./../assets/bg2.png');
 }
 
-.footer {
-    margin-top: 2rem;
-    display: flex;
-    gap: 1rem;
-    justify-content: end;
-}
-
-.footer button{
-    width: 140px;
-    height: 40px;
-    font-weight: 600;
-    border-radius: 6.5px;
-    cursor: pointer;
-}
-
-.cancel {
-    background: transparent;
-    border: 1px solid var(--gray-400);
-    color: var(--gray-300);
-}
-
-.add {
-    border: 1px solid var(--red-500);
-    background-color: var(--red-500);
-    color: white;
-}
-
-.cancel:hover {
-    background-color: var(--gray-300);
-    color: white;
-}
-
-.add:hover {
-    background-color: var(--red-700);
-}
-
 
 
 @media screen and (min-width: 800px) {
@@ -61,7 +25,4 @@
         display: flex;
     }
 
-    .footer {
-        width: 90%;
-    }
 }

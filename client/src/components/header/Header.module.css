@@ -76,6 +76,35 @@
     color: black;
 }
 
+.user {
+    color: white;
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 1rem;
+    z-index: 2;
+    font-size: clamp(1rem,1.5vw,1.2rem);
+}
+
+.user button {
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: clamp(1rem,1.5vw,1.2rem);
+    cursor: pointer;
+}
+
+
+.user p {
+    margin: 0;
+}
+
+.image-container {
+    display: flex;
+    width: 40px;
+    height: 40px;
+}
+
 @media screen and (min-width: 600px) {
     .rectangle {
         display: block;
