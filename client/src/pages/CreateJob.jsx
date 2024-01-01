@@ -12,14 +12,14 @@ const CreateJob = ({setJobs}) => {
     job ||{company_name: "",
           company_description: "",
           job_description: "",
-          job_positin: "",
+          job_position: "",
           job_type: "Select",
           logo_url: "",
           monthly_salary: "",
           remote: "Select",
           skills_required: "",
           work_location: "",
-          informationl: ""
+          information: ""
           });
 
   return (

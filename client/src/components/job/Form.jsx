@@ -36,17 +36,19 @@ const Form = ({setJobs,jobData,setJobData,toEdit}) => {
       register('companyDescription',{onChange: (e) => setJobData(prev => ({...prev,company_description: e.target.value}))})
       register('jobDesc',{onChange: (e) => setJobData(prev => ({...prev,job_description: e.target.value}))})
       register('skillsRequired',{onChange: (e) => setJobData(prev => ({...prev,skills_required: e.target.value}))})
-      register('information',{onChange: (e) => setJobData(prev => ({...prev,inf: e.target.value}))})
+      register('information',{onChange: (e) => setJobData(prev => ({...prev,information: e.target.value}))})
     }
     initializeValues();
     setValueChanges();
   },[]);
 
   const create = async() => {
+    
+    console.log(jobData);
     try {
       await createJob(jobData);
       toastSuccess("Succesfully created job");
-      setJobs(prev => [...prev,jobData]);
+      setJobs(prev => prev ? [prev] : [...prev,jobData]);
       setTimeout(() => {
         navigate('/');
       },1000);

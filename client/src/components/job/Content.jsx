@@ -1,7 +1,7 @@
 import styles from './Content.module.css'
 import Icon from './../../assets/icon.png'
 import getTime from '../../utils/timestamp';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -26,6 +26,7 @@ const Content = ({job,user}) => {
         <div className= {styles["time"]}>
             <p>{time} ago</p>
             <p>{job?.job_type}</p>
+            <img src = {job?.logo_url} alt = "Logo" />
         </div>
         <div className= {styles["title"]}>
             <div className= {styles["edit-job"]}>

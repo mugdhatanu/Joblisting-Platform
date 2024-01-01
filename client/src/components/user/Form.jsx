@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form"
 import {Toaster} from 'react-hot-toast'
 import setLocalStorageValue from '../../utils/localstorage/setValueInLocal';
 import getFromLocalStorage from '../../utils/localstorage/getFromLocal';
-import { login, toastError } from '../../apis/auth';
+import { login, toastError, _register } from '../../apis/auth';
 
 
 const Form = ({toRegister,setUser}) => {
@@ -26,10 +26,10 @@ const Form = ({toRegister,setUser}) => {
         }
     }
 
-    const registerUser = async() => {
-        const user = {email: formInputs.email,password: formInputs.password,name: formInputs.name, mobile: formInputs.mobile}
+    const registerUser = async(data) => {
+        const user = {email: data.email,password: data.password,name: data.name, mobile: data.mobile}
         try {
-            const userData = await login(user);
+            const userData = await _register(user);
             setLocalStorageValue("token",userData.token);
             setUser(getFromLocalStorage());
             setTimeout(() => {

@@ -4,8 +4,8 @@ const requireAuth = require('./../middleware/requierAuth');
 
 const router = express.Router();
 
-router.get('/getJobs',listJobs);
-router.get('/getJob/:jobId',jobDetails);
+router.get('/jobs',listJobs);
+router.get('/job/:jobId',jobDetails);
 router.post('/register',register);
 router.post('/login',login);
 router.post('/create',requireAuth,createJob);

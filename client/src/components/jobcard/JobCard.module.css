@@ -16,10 +16,11 @@
     flex-wrap: wrap;
     gap: 2rem;
     width: 50%;
+    align-items: center;
 }
 
 .logo {
-    height: 50%;
+    height: 120px;
     margin-top: 1rem;
 }
 
@@ -67,6 +68,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+    margin-left: auto;
 }
 
 .skills div {
@@ -103,12 +105,13 @@
     height: 40px;
 }
 
+
 .right-section .edit {
     background-color: transparent;
     color: var(--red-500);
     border-width: 2px;
     font-weight: 500;
-
+    width: 10vw;
 }
 
 .right-section .edit:hover {

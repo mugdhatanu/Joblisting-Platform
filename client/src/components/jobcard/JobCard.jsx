@@ -1,5 +1,4 @@
 import styles from './JobCard.module.css'
-import Logo from './../../assets/logo.png'
 import Flag from './../../assets/india.png'
 import { Link, useNavigate } from 'react-router-dom'
 
@@ -21,7 +20,7 @@ const JobCard = ({job,user,setJob}) => {
   return (
     <div className= {styles["card"]}>
       <div className= {styles["left-section"]}>
-        <img src = {Logo} alt = "Logo" className= {styles["logo"]}/>
+        <img src = {job?.logo_url} alt = "Logo" className= {styles["logo"]}/>
         <div className= {styles["job-info"]}>
           <p className= {styles["title"]}>{job.job_position}</p>
           <div className= {styles["salary-loc"]}>

@@ -1,5 +1,6 @@
 import axios from 'axios'
 import toast from 'react-hot-toast'
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const toastSuccess = (msg) => {
     toast.success(`User successfully ${msg}`, {
@@ -30,7 +31,7 @@ export const toastError = (msg) => {
 
 export const login = async (user) => {
     try {
-        const res = await axios.post('http://localhost:3000/user/login',user);
+        const res = await axios.post(`${backendUrl}/login`,user);
         toastSuccess('logged in');
         return res.data;
     } catch(err) {
@@ -38,9 +39,9 @@ export const login = async (user) => {
     }
 }
 
-export const register = async (user) => {
+export const _register = async (user) => {
     try {
-        const res = await axios.post('http://localhost:3000/user/register',user);
+        const res = await axios.post(`${backendUrl}/register`,user);
         toastSuccess('registered');
         return res.data;
     } catch(err) {

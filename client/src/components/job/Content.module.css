@@ -8,8 +8,13 @@
 
 .time {
     display: flex;
+    align-items: center;
     gap: 1rem;
     color: var(--gray-600);
+}
+
+.time img {
+    height: 50px;
 }
 
 .title h3 {

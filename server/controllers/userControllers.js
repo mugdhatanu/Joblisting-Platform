@@ -32,7 +32,7 @@ const login = async (req,res,next) => {
 }
 
 const createJob = async(req,res,next) => {
-    const {company_name,job_title,logo_url,job_position,monthly_salary,job_type,work_location,remote,company_description,skills_required,information} = req.body;
+    const {company_name,logo_url,job_position,monthly_salary,job_type,work_location,remote,company_description,skills_required,information,job_description} = req.body;
     if(
         !company_name ||
         !logo_url || 
@@ -41,17 +41,17 @@ const createJob = async(req,res,next) => {
         !job_type || 
         !work_location || 
         !remote || 
+        !job_description || 
         !company_description || 
         !skills_required || 
-        !information || 
-        !job_title
+        !information 
     ) { 
         const error = new Error("Please fill the required fields");
         error.status = 400;
         next(error);
     } else {
         const skills = skills_required.split(",");
-        const job = {company_name,logo_url,job_title,job_position,monthly_salary,job_type,work_location,remote,company_description,skills_required: skills,information};
+        const job = {company_name,logo_url,job_description,job_position,monthly_salary,job_type,work_location,remote,company_description,skills_required: skills,information};
         try {
             await Job.create(job);
             res.status(201).json({msg: "Job added sucessfully"})

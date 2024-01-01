@@ -1,6 +1,7 @@
 import toast from 'react-hot-toast';
 import axios from 'axios'
 import getFromLocalStorage from '../utils/localstorage/getFromLocal';
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 
 export const toastSuccess = (msg) => {
@@ -32,7 +33,7 @@ export const toastError = (msg) => {
 
 export const getAllJobs = async() => {
     try {
-        const res = await axios.get('http://localhost:3000/user/getJobs');
+        const res = await axios.get(`${backendUrl}/jobs`);
         return res.data;
     } catch(err) {
         throw new Error('Error fetching jobs',err)
@@ -41,7 +42,7 @@ export const getAllJobs = async() => {
 
 export const getJobDetails = async(id) => {
     try {
-        const res = await axios.get(`http://localhost:3000/user/getJob/${id}`);
+        const res = await axios.get(`${backendUrl}/job/${id}`);
         return res.data;
     } catch(err) {
         throw new Error('Error fetching job details',err)
@@ -55,7 +56,7 @@ export const createJob = async(job) => {
         }
     }
     try {
-        const res = await axios.post(`http://localhost:3000/user/create`,job,options);
+        const res = await axios.post(`${backendUrl}/create`,job,options);
         return res.data;
     } catch(err) {
         throw new Error('Error creating job',err)
@@ -69,7 +70,7 @@ export const editJob = async(job) => {
         }
     }
     try {
-        const res = await axios.put(`http://localhost:3000/user/edit`,job,options);
+        const res = await axios.put(`${backendUrl}/edit`,job,options);
         return res.data;
     } catch(err) {
         throw new Error('Error editing job',err)
